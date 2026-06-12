@@ -1,3 +1,4 @@
+import heroImage from './heroImage.png'
 import logo from './logo.svg'
 import searchIcon from './searchIcon.svg'
 import userIcon from './userIcon.svg'
@@ -72,6 +73,7 @@ export const assets = {
     uploadArea,
     totalBookingIcon,
     totalRevenueIcon,
+    heroImage
 }
 
 export const cities = [
