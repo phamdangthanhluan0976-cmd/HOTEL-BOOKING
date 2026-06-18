@@ -1,11 +1,19 @@
 import React, { useState } from 'react'
 import Title from '../components/Title'
-import { assets, userBookingsDummyData } from '../assets/assets'
+import { assets } from '../assets/assets'
+import RoomDetails from './RoomDetails'
+import { useEffect } from 'react'
+
 
 const MyBooking = () => {
 
     // eslint-disable-next-line no-unused-vars
-    const [MyBookings, setMyBookings] = useState(userBookingsDummyData)
+    const [MyBookings, setMyBookings] = useState([])
+
+    useEffect(() => {
+        const bookings = JSON.parse(localStorage.getItem("myBookings")) || [];
+        setMyBookings(bookings);
+    }, [])
 
     return (
         <div className='py-28 md:pb-35 md:pt-32 px-4 md:px-16 lg:px-24 xl:px-32'>

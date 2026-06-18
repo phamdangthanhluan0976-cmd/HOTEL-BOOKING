@@ -10,6 +10,8 @@ const BookIcon = () => (
 )
 
 const Navbar = () => {
+
+    const { isSignedIn } = useUser();
     const navLinks = [
         { name: 'Home', path: '/' },
         { name: 'Hotels', path: '/rooms' },
@@ -57,9 +59,11 @@ const Navbar = () => {
                         <div className={`${isScrolled ? "bg-gray-700" : "bg-white"} h-0.5 w-0 group-hover:w-full transition-all duration-300`} />
                     </a>
                 ))}
-                <button onClick={() => navigate('/owner')} className={`border px-4 py-1 text-sm font-light rounded-full cursor-pointer ${isScrolled ? 'text-black' : 'text-white'} transition-all`}>
-                    Dashboard
-                </button>
+                {isSignedIn && (
+                    <button onClick={() => navigate('/owner')} className={`border px-4 py-1 text-sm font-light rounded-full cursor-pointer ${isScrolled ? 'text-black' : 'text-white'} transition-all`}>
+                        Dashboard
+                    </button>
+                )}
             </div>
 
             {/* Desktop Right */}
